@@ -6,11 +6,38 @@ const search = document.querySelector('.search input');
 
 
 
+const statusTasks = {
+     completed: 0,
+     undone: 0,
+    total_tasks: 0
+}
 
-let completed = 0;
-let undone = 0;
-let total_tasks = 0
 
+
+const handleRemoveTask = () => {
+    statusTasks.total_tasks -- ;
+    handleCompletedRemove()
+    handleStatusTask()
+    
+    }
+const handleStatusTask = () => {
+   if(statusTasks.completed < 0 ) statusTasks.completed = 0 
+   if(statusTasks.undone < 0 ) statusTasks.undone = 0 
+
+   statusTasks.undone = statusTasks.total_tasks - statusTasks.completed 
+
+   return statusTasks.undone
+}
+
+const handleCompletedAdd = () => ++ statusTasks.completed  
+
+
+const handleCompletedRemove = () => statusTasks.completed ? -- statusTask.completed : statusTasks.completed = 0
+ 
+const initailUndone = (total_tasks) => {
+    statusTasks.undone = total_tasks - statusTasks.completed
+    document.querySelector('.undone').innerHTML=statusTasks.undone;
+} 
 //create to-do li
 const generateTemplate = todo =>{
    const html = `
@@ -18,34 +45,30 @@ const generateTemplate = todo =>{
             <span>${todo}</span>
             <i class="far fa-trash-alt delete"></i>
             <i  class="far fa-circle circle"></i>
-          
+            
     </li>
    `
    
    list.innerHTML +=  html
-   total_tasks+=1
-   document.querySelector('.total-tasks').innerHTML=total_tasks;
+   statusTasks.total_tasks ++ ;
+   initailUndone(statusTasks.total_tasks)
+   document.querySelector('.total-tasks').innerHTML=statusTasks.total_tasks;
    
-
    document.querySelectorAll('.circle').forEach(function(element){
     element.addEventListener('click', function(){
         if(this.className === 'far fa-circle circle'){
             this.className = 'far fa-check-circle circle'
             element.parentNode.style.textDecoration = "line-through";
-            completed++;
-            undone = total_tasks - completed
-            document.querySelector('.completed').innerHTML=completed;
-            document.querySelector('.undone').innerHTML=undone;
+            document.querySelector('.completed').innerHTML=handleCompletedAdd();
+            document.querySelector('.undone').innerHTML=handleStatusTask();
         
            
         }
         else{
            this.className = 'far fa-circle circle'
            element.parentNode.style.textDecoration = "none";
-           completed--;
-           undone = total_tasks - completed
-           document.querySelector('.completed').innerHTML=completed;
-           document.querySelector('.undone').innerHTML=undone;
+           document.querySelector('.completed').innerHTML=handleCompletedRemove();
+           document.querySelector('.undone').innerHTML=handleStatusTask();
            
         }
     })
@@ -70,12 +93,10 @@ list.addEventListener('click' , e => {
 
     if(e.target.classList.contains('delete')){
        e.target.parentElement.remove()
-       total_tasks--;
-       completed--;
-       undone = total_tasks - completed
-       document.querySelector('.total-tasks').innerHTML=total_tasks;
-       document.querySelector('.completed').innerHTML=completed;
-       document.querySelector('.undone').innerHTML=undone;
+       handleRemoveTask()
+       document.querySelector('.total-tasks').innerHTML=statusTasks.total_tasks;
+       document.querySelector('.completed').innerHTML=statusTasks.completed;
+       document.querySelector('.undone').innerHTML=statusTasks.undone;
     }
  
 
