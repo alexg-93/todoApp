@@ -1,0 +1,70 @@
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+
+body{
+    background: linear-gradient(to right, #654ea3, #eaafc8);
+}
+
+:root {
+	--righteous-font: 'Righteous', cursive;
+}
+
+div.container{ 
+   max-width:500px;
+}
+
+
+h1.mb-4{
+    font-family: var(--righteous-font);
+    font-size:50px;
+}
+
+input[type=text],
+input[type=text]:focus{
+    color: #ffffff;
+    border: none;
+    background: whitesmoke;
+    font-family: var(--righteous-font);
+   
+  
+}
+
+.todos li{
+    background: #423a6f;
+    
+}
+
+.delete{
+    cursor:pointer;
+    float:right;
+
+}
+
+.circle{
+    cursor:pointer;
+    float:right;
+    margin-right:10px;
+}
+
+#add-item-text{
+    font-size:35px;
+    color:cornsilk;
+    font-family: var(--righteous-font);
+}
+
+
+
+.filtered{
+    visibility: hidden; 
+}
+
+
+
+
+
+  
+
