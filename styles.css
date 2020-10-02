@@ -11,18 +11,15 @@ body{
     
 }
 
-:root {
-	--righteous-font: 'Righteous', cursive;
-}
 
 div.container{ 
    max-width:500px;
-   font-family: var(--righteous-font);
+   font-family: monospace;
 }
 
 
 h1.mb-4{
-    font-family: var(--righteous-font);
+    font-family: monospace;
     font-size:50px;
 }
 
@@ -31,14 +28,10 @@ input[type=text]:focus{
     color: #ffffff;
     border: none;
     background: whitesmoke;
-    font-family: var(--righteous-font);
-   
-  
 }
 
 .todos li{
     background: #423a6f; 
-    font-family: var(--righteous-font);
     font-size:20px;
 }
 
@@ -55,11 +48,11 @@ input[type=text]:focus{
     
 }
 
-
-
 .filtered{
     visibility: hidden; 
 }
+
+
 
 
 

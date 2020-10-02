@@ -33,7 +33,7 @@ const initialUndone = (total_tasks) => {
 //create to-do list
 const generateTemplate = (todo) => {
   const html = `
-   <li class="list-group-item">
+   <li class="list-group-item"">
             <span>${todo}</span>
             <i class="far fa-trash-alt delete"></i>
             <i  class="far fa-circle circle"></i>

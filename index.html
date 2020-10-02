@@ -23,36 +23,43 @@
       <header class="text-center text-light my-4">
         <h1 class="mb-4">To-do List <i class="fas fa-tasks"></i></h1>
         <form action="" class="search">
-          <input
+         <div class="icon-input-search d-flex justify-content-end">
+            <i class="fa fa-search position-absolute text-dark mt-2 mr-2"></i>
+            <input
             class="form-control text-dark"
             type="text"
             name="search"
-            placeholder="Search todo.."
+            placeholder="Search todo.." required
           />
+         </div>
         </form>
       </header>
 
       <form class="add text-center my-4">
-        <input
-          type="text"
-          class="form-control text-dark"
-          type="text"
-          name="add"
-          placeholder="Add new task.."
-          required
-        />
+          <div class="icon-input-type d-flex justify-content-end">
+            <i class="far fa-keyboard position-absolute text-dark mt-2 mr-2"></i>
+            <input
+              type="text"
+              class="form-control text-dark"
+              type="text"
+              name="add"
+              placeholder="Add new task.."
+              required
+            />
+          </div>
+       
       </form>
 
       <ul class="list-group todos text-light"></ul>
       <div class="d-flex mt-3 mb-3 ml-n2">
-        <button class="btn btn-danger delete-all ml-2">Clear</button>
-        <button type="button" class="btn btn-info ml-2">
+        <button class="btn btn-danger delete-all ml-2 font-weight-bolder">Clear</button>
+        <button type="button" class="btn btn-info ml-2 text-light font-weight-bolder">
           Total tasks<span class="badge badge-light ml-2 total-tasks">0</span>
         </button>
-        <button type="button" class="btn btn-success ml-2">
+        <button type="button" class="btn btn-success ml-2 text-light font-weight-bolder">
           Completed<span class="badge badge-light completed ml-2">0</span>
         </button>
-        <button type="button" class="btn btn-warning ml-2">
+        <button type="button" class="btn btn-primary ml-2 text-light font-weight-bolder">
           UNDONE<span class="badge badge-light undone ml-2">0</span>
         </button>
       </div>
